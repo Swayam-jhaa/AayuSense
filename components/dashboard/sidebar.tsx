@@ -4,12 +4,13 @@ import Link from "next/link"
 import { useState } from "react"
 import { Home, BarChart3, Settings, X } from "lucide-react"
 import { SignedIn, SignOutButton } from "@clerk/nextjs"
+import Image from "next/image"
 
 export function Sidebar() {
   const [open, setOpen] = useState(true)
 
   return (
-    <aside className={`${open ? "block" : "hidden md:block"} border-r border-(--color-deep)/10 bg-(--color-bg-200)`}>
+    <aside className={`${open ? "block" : "hidden md:block"} border-r border-(--color-deep)/10 bg-zinc-100`}>
       <div className="h-12 md:hidden flex items-center justify-between px-3">
         <span className="font-semibold text-(--color-deep)">Menu</span>
         <button
@@ -23,7 +24,7 @@ export function Sidebar() {
 
       <div className="hidden md:flex items-center justify-between px-4 py-4">
         <div className="flex items-center gap-2">
-          <div className="h-8 w-8 rounded-md bg-(--color-brand)/10 border border-(--color-brand)/30" />
+          <Image src={"/images/ayurveda.png"}alt="Logo"width={30} height={30}  className="h-8 w-8 rounded-md bg-(--color-brand)/10 border border-(--color-brand)/30" />
           <span className="font-serif font-bold text-(--color-deep)">AayuSense</span>
         </div>
         <button
@@ -38,19 +39,19 @@ export function Sidebar() {
       <nav className="px-2 py-2 space-y-1">
         <Link
           href="/dashboard"
-          className="flex items-center gap-2 px-3 h-10 rounded-lg hover:bg-(--color-brand)/10 text-(--color-deep)"
+          className="flex items-center gap-2 px-3 h-10 rounded-lg hover:bg-(--color-brand)/10 text-(--color-deep) transition-colors"
         >
           <Home size={18} /> Home
         </Link>
         <Link
           href="/dashboard/reports"
-          className="flex items-center gap-2 px-3 h-10 rounded-lg hover:bg-(--color-brand)/10 text-(--color-deep)"
+          className="flex items-center gap-2 px-3 h-10 rounded-lg hover:bg-(--color-brand)/10 text-(--color-deep) transition-colors"
         >
-          <BarChart3 size={18} /> Reports
+          <BarChart3 size={18} /> HerbProfile
         </Link>
         <Link
           href="/dashboard/settings"
-          className="flex items-center gap-2 px-3 h-10 rounded-lg hover:bg-(--color-brand)/10 text-(--color-deep)"
+          className="flex items-center gap-2 px-3 h-10 rounded-lg hover:bg-(--color-brand)/10 text-(--color-deep) transition-colors"
         >
           <Settings size={18} /> Settings
         </Link>
@@ -59,7 +60,7 @@ export function Sidebar() {
       <div className="mt-auto p-3 sticky top-[100vh]">
         <div className="flex items-center justify-between rounded-xl border border-(--color-deep)/10 bg-(--color-bg) p-3">
           <div className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-md bg-(--color-brand)/10 border border-(--color-brand)/30" />
+            <Image src={"/images/ayurveda.png"}alt="Logo"width={30} height={30}  className="h-8 w-8 rounded-md bg-(--color-brand)/10 border border-(--color-brand)/30" />
             <span className="font-semibold text-(--color-deep)">AayuSense</span>
           </div>
           <SignedIn>

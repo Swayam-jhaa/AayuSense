@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -28,7 +29,7 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-3 sm:gap-4 px-4 sm:px-0">
             <button className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl bg-gray-900 text-white hover:bg-gray-800 transition-all duration-300 hover:scale-105 font-medium text-base sm:text-lg min-w-[180px]">
-              Start Measuring
+              <Link href={"/livetest"}>Start Measuring</Link>
               <svg
                 width="18"
                 height="18"

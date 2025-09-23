@@ -128,6 +128,36 @@
     @apply bg-background text-foreground;
   }
 }
+/* Scientific UI Design Tokens (for dashboard look) */
+:root {
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, oklch(0.76 0.18 250) 0%, oklch(0.7 0.12 200) 100%);
+  --gradient-subtle: linear-gradient(180deg, oklch(0.99 0 0) 0%, oklch(0.97 0.02 240) 100%);
+  --gradient-card: linear-gradient(180deg, oklch(0.995 0 0) 0%, oklch(0.985 0 0) 100%);
+
+  /* Shadows */
+  --shadow-card: 0 1px 0 rgba(0,0,0,0.03), 0 8px 24px rgba(16,24,40,0.06);
+  --shadow-glow: 0 0 0 0 rgba(59,130,246,0.35);
+
+  /* Status colors */
+  --status-connected: 150 65% 35%;
+  --status-offline: 0 65% 45%;
+  --status-error: 10 85% 45%;
+  --status-measuring: 220 85% 55%;
+
+  /* Adulteration scale */
+  --adulteration-safe: 150 65% 35%;
+  --adulteration-warning: 40 90% 50%;
+  --adulteration-danger: 0 80% 50%;
+
+  /* Rasa palette (approx) */
+  --rasa-madhura: 45 90% 55%;
+  --rasa-amla: 15 85% 55%;
+  --rasa-lavana: 215 85% 60%;
+  --rasa-tikta: 28 86% 50%;
+  --rasa-katu: 290 60% 55%;
+  --rasa-kashaya: 130 45% 40%;
+}
 /* Scientific UI Components */
   .measurement-glow {
     box-shadow: var(--shadow-glow);
@@ -146,6 +176,22 @@
   
 .gradient-subtle {
   background: var(--gradient-subtle);
+}
+
+/* Dashboard-specific helpers */
+.dash-hero {
+  background: radial-gradient(1200px 400px at 50% -200px, rgba(59,130,246,0.12), transparent), var(--gradient-subtle);
+}
+.metric-card {
+  background: white;
+  border: 1px solid rgba(2,6,23,0.06);
+  box-shadow: 0 1px 0 rgba(2,6,23,0.02), 0 8px 24px rgba(2,6,23,0.04);
+}
+.metric-title { color: color-mix(in oklch, var(--foreground) 60%, white); }
+.metric-value { color: var(--foreground); }
+.chip {
+  border: 1px solid rgba(2,6,23,0.08);
+  background: color-mix(in oklch, var(--background) 85%, white);
 }
 
 @layer utilities {
@@ -169,6 +215,14 @@
   .text-status-offline { color: hsl(var(--status-offline)); }
   .text-status-error { color: hsl(var(--status-error)); }
   .text-status-measuring { color: hsl(var(--status-measuring)); }
+  .bg-status-connected { background-color: hsl(var(--status-connected)); }
+  .bg-status-offline { background-color: hsl(var(--status-offline)); }
+  .bg-status-error { background-color: hsl(var(--status-error)); }
+  .bg-status-measuring { background-color: hsl(var(--status-measuring)); }
+
+  /* Aliases to match existing class usage */
+  .text-success { color: hsl(var(--status-connected)); }
+  .text-warning { color: hsl(var(--adulteration-warning)); }
   
   /* Adulteration Utilities */
   .text-adulteration-safe { color: hsl(var(--adulteration-safe)); }

@@ -19,7 +19,7 @@ export function RadarFingerprint({ sensors }: RadarFingerprintProps) {
     },
     {
       axis: 'Conductivity',
-      value: normalizeValue(sensors.cond_uS_cm, 0, 1000),
+      value: normalizeValue(sensors.TDS, 0, 1000),
       fullMark: 1,
     },
     {

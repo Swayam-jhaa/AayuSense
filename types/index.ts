@@ -2,7 +2,7 @@
 
 export interface SensorData {
   pH: number;
-  cond_uS_cm: number;
+  TDS: number;
   orp_mV: number;
   turbidity: number;
   e1_mV: number;

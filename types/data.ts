@@ -1,6 +1,4 @@
-//import { SampleResult, HerbProfile, Device, SensorData } from '../types';
-
-import { Device, HerbProfile, SampleResult, SensorData } from "@/types";
+import { SampleResult, HerbProfile, Device, SensorData } from '.';
 
 // Mock sample results
 export const mockSampleResults: SampleResult[] = [
