@@ -17,8 +17,8 @@ export function Hero() {
               #1 AI-assisted rasa analysis
             </p>
             <h1 className="font-serif text-balance text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-tight text-center lg:text-left">
-              <span className="text-green-500">Herbal</span> Without Side{" "}
-              <span className="text-amber-950">Effects</span>
+              <span className="text-green-500">Sensing</span> Taste,{" "}
+              <span className="text-amber-950">Validating Purity</span>
             </h1>
             <p className="text-base sm:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-xl mx-auto lg:mx-0 text-center lg:text-left px-4 sm:px-0">
               Scientifically analyze rasa (taste) and detect possible adulteration

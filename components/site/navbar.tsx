@@ -10,8 +10,10 @@ import Image from "next/image"
 const links = [
   { href: "/", label: "Home" },
   { href: "/livetest", label: "LiveTest" },
-  { href: "/#remedies", label: "Remedies" },
-  { href: "/#about", label: "About" },
+  { href: "/results", label: "Results" },
+  { href: "/remedies", label: "Remedies" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact Us" },
 ]
 
 const HAS_CLERK = Boolean(process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY)

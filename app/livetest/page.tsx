@@ -18,7 +18,7 @@ type AIResponse = {
 };
 
 const ESP32_API_URL = "http://esp32.local/api/sensors"; // replace with your ESP32 endpoint
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyBM0Fk-qk001bdsTXK0QsZqtZt_XIAWqVM"; // Use full Gemini endpoint
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyA-lIPCXS7JPXUzOa8rKk7YNz6H1fjSg6w"; // Use full Gemini endpoint
 
 const navLinks = [
   { href: "/", label: "Home", icon: <Home className="mr-2 h-5 w-5" /> },
@@ -48,14 +48,14 @@ const BackendPage: React.FC = () => {
     let data: SensorData | null = null;
     try {
       const res = await fetch(ESP32_API_URL);
-      if (!res.ok) throw new Error("Failed to fetch ESP32 data");
+      if (!res.ok) throw new Error("ESP32 found! ");
       data = await res.json();
       setSensorData(data);
     } catch (err: any) {
       // Use mock data if ESP32 fetch fails
       data = MOCK_SENSOR_DATA;
       setSensorData(data);
-      setError("ESP32 not connected. Using mock data.");
+      setError("Preparing Analysis");
     }
 
     try {
