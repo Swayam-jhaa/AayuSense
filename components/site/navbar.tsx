@@ -34,7 +34,7 @@ export function Navbar() {
               height={32} 
               className="h-8 w-8 rounded-md bg-green-50 border border-green-200" 
             />
-            <span className="font-serif text-xl font-bold text-gray-900">AayuSense</span>
+            <span className="font-serif text-xl font-bold text-gray-900">Aayuwave</span>
           </Link>
 
           <button

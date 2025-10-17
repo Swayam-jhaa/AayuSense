@@ -33,18 +33,18 @@ export function RadarFingerprint({ sensors }: RadarFingerprintProps) {
       fullMark: 1,
     },
     {
-      axis: 'E1',
-      value: normalizeValue(sensors.e1_mV, -0.5, 0.5),
+      axis: 'Reduction Value',
+      value: normalizeValue(sensors.Reduction_value, -0.5, 0.5),
       fullMark: 1,
     },
     {
-      axis: 'E2',
-      value: normalizeValue(sensors.e2_mV, -0.5, 0.5),
+      axis: 'Ionic value',
+      value: normalizeValue(sensors.Ionic_value, -0.5, 0.5),
       fullMark: 1,
     },
     {
-      axis: 'E3',
-      value: normalizeValue(sensors.e3_mV, -0.5, 0.5),
+      axis: 'Salt content',
+      value: normalizeValue(sensors.Salt_content, -0.5, 0.5),
       fullMark: 1,
     },
   ];

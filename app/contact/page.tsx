@@ -226,7 +226,7 @@ export default function ContactUs() {
               <div className="rounded-2xl border border-green-100 bg-white/70 backdrop-blur p-6 shadow-sm">
                 <h3 className="font-semibold text-gray-900">Contact details</h3>
                 <ul className="mt-3 space-y-2 text-gray-700 text-sm">
-                  <li><span className="text-gray-500">Email:</span> hello@aayusense.ai</li>
+                  <li><span className="text-gray-500">Email:</span> aetheraayurwave@gmail.com</li>
                   <li><span className="text-gray-500">Phone:</span> +91 98765 43210</li>
                   <li><span className="text-gray-500">Hours:</span> Mon–Fri, 9:00–18:00 IST</li>
                 </ul>

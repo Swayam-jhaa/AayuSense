@@ -4,7 +4,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-4 py-8 sm:py-10 lg:py-12 grid gap-6 sm:gap-8 grid-cols-2 sm:grid-cols-2 lg:grid-cols-4">
         {/* Brand Section */}
         <div className="text-center sm:text-left lg:col-span-1">
-          <h4 className="font-serif text-lg sm:text-xl font-bold">AayuSense</h4>
+          <h4 className="font-serif text-lg sm:text-xl font-bold">Aayuwave</h4>
           <p className="mt-2 text-(--color-bg)/80 text-sm sm:text-base max-w-xs mx-auto sm:mx-0">
             The E-Tongue Intelligence for Ayurveda.
           </p>
@@ -50,10 +50,10 @@ export function SiteFooter() {
           <div className="mt-2 sm:mt-3 space-y-2 sm:space-y-1">
             <div>
               <a
-                href="mailto:hello@AayuSense.ai"
+                href="mailto:aetheraayurwave@gmail.com"
                 className="hover:underline underline-offset-4 decoration-(--color-saffron) text-sm sm:text-base transition-colors hover:text-(--color-bg)/90"
               >
-                hello@AayuSense.ai
+                aetheraayurwave@gmail.com
               </a>
             </div>
 
@@ -75,7 +75,7 @@ export function SiteFooter() {
 
       {/* Copyright Section */}
       <div className="text-center text-xs sm:text-sm py-3 sm:py-4 bg-(--color-brand-700) px-4">
-        <p>© {new Date().getFullYear()} AayuSense. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Aayuwave. All rights reserved.</p>
       </div>
     </footer>
   );

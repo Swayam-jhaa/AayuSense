@@ -71,7 +71,7 @@ export function TopBar({ onMeasureClick }: TopBarProps) {
             <Zap className="h-6 w-6 text-white" />
           </div>
           <div>
-            <h1 className="text-xl font-semibold text-foreground">AayuSense</h1>
+            <h1 className="text-xl font-semibold text-foreground">Aayuwave</h1>
             <p className="text-sm text-muted-foreground">The e-Tongue Intelligence</p>
           </div>
         </div>

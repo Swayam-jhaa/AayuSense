@@ -5,9 +5,9 @@ export interface SensorData {
   TDS: number;
   orp_mV: number;
   turbidity: number;
-  e1_mV: number;
-  e2_mV: number;
-  e3_mV: number;
+  Reduction_value: number;
+  Ionic_value: number;
+  Salt_content: number;
   temp_c: number;
 }
 

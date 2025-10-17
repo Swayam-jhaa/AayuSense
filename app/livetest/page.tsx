@@ -1,8 +1,10 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { Activity, BarChart3, Cpu, RefreshCw, Database, Home, Zap } from 'lucide-react';
-import Image from 'next/image';
+import { Activity, BarChart3, Cpu, RefreshCw } from 'lucide-react';
+import { Navbar } from '@/components/site/navbar';
+import { TopMinistryBar } from '@/components/site/top-ministry-bar';
+import { SiteFooter } from '@/components/site/footer';
+import { motion } from 'framer-motion';
 
 type SensorData = {
   pH: number;
@@ -20,13 +22,7 @@ type AIResponse = {
 const ESP32_API_URL = "http://esp32.local/api/sensors"; // replace with your ESP32 endpoint
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyA-lIPCXS7JPXUzOa8rKk7YNz6H1fjSg6w"; // Use full Gemini endpoint
 
-const navLinks = [
-  { href: "/", label: "Home", icon: <Home className="mr-2 h-5 w-5" /> },
-  { href: "/dashboard", label: "Dashboard", icon: <BarChart3 className="mr-2 h-5 w-5" /> },
-  { href: "/livetest", label: "LiveTest", icon: <Zap className="mr-2 h-5 w-5" /> },
-  { href: "/remedies", label: "Remedies", icon: <Cpu className="mr-2 h-5 w-5" /> },
-  { href: "/about", label: "About", icon: <Database className="mr-2 h-5 w-5" /> },
-];
+// use shared navbar; drop local nav links and sidebar
 
 const MOCK_SENSOR_DATA: SensorData = {
   pH: 7.2,
@@ -107,119 +103,91 @@ const BackendPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f6fcf8] via-[#eaf6ff] to-[#f3f0ff] flex flex-col">
-      {/* Navbar */}
-      <nav className="w-full bg-white/90 backdrop-blur border-b border-gray-200 px-6 py-3 flex items-center justify-between shadow-sm z-10">
-        <div className="flex items-center space-x-3">
-          <Image src={"/images/ayurveda.png"} alt="Logo" width={36} height={36} className="h-9 w-9 rounded-md border border-green-100 shadow" />
-          <span className="font-extrabold text-2xl text-primary tracking-tight">AayuSense</span>
-        </div>
-        <div className="flex items-center space-x-2">
-          <Link href="/dashboard">
-            <button
-              className="gradient-primary text-white px-4 py-2 rounded-lg font-semibold shadow hover:shadow-lg transition"
-            >
-              Dashboard
-            </button>
-          </Link>
-          <Link href="/livetest">
-            <button
-              className="bg-accent text-white px-4 py-2 rounded-lg font-semibold shadow hover:brightness-110 transition"
-              style={{ background: "linear-gradient(90deg, oklch(0.65 0.18 250), oklch(0.85 0.15 80))" }}
-            >
-              LiveTest
-            </button>
-          </Link>
-        </div>
-      </nav>
-
-      <div className="flex flex-1">
-        {/* Sidebar */}
-        <aside className="hidden md:flex flex-col w-60 bg-white/80 border-r border-gray-200 py-10 px-5 shadow-sm">
-          <div className="mb-10">
-            <span className="text-lg font-bold text-primary tracking-wide">Navigation</span>
+    <main className="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 min-h-screen">
+      <TopMinistryBar />
+      <Navbar />
+      <section className="mx-auto max-w-7xl px-4 py-10">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8 md:mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4"
+        >
+          <div>
+            <h1 className="font-serif text-4xl md:text-5xl font-extrabold text-gray-900 flex items-center tracking-tight">
+              <Activity className="mr-3 h-9 w-9 text-emerald-600" />
+              Live Test
+            </h1>
+            <p className="text-base md:text-lg text-gray-700 font-medium">
+              Stream sensor data and get instant AI insights.
+            </p>
           </div>
-          <nav className="flex flex-col gap-2">
-            {navLinks.map(link => (
-              <Link key={link.href} href={link.href} className="flex items-center px-3 py-2 rounded-lg hover:bg-primary/10 font-medium text-gray-700 transition">
-                {link.icon}
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-        </aside>
+          <button
+            className="flex items-center px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] transition"
+            onClick={fetchSensorData}
+            disabled={loading}
+          >
+            <RefreshCw className={`mr-2 h-6 w-6 ${loading ? "animate-spin" : ""}`} />
+            {loading ? "Refreshing..." : "Refresh Data"}
+          </button>
+        </motion.div>
 
-        {/* Main Content */}
-        <main className="flex-1 px-2 md:px-10 py-10">
-          <div className="mb-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-            <div>
-              <h1 className="text-4xl font-extrabold text-primary mb-2 flex items-center tracking-tight">
-                <Activity className="mr-2 h-9 w-9 text-accent" />
-                Live ESP32 AI Analysis
-              </h1>
-              <p className="text-lg text-muted-foreground font-medium">
-                Connects to your ESP32, sends sensor data to AI, and visualizes the results.
-              </p>
-            </div>
-            <button
-              className="flex items-center gradient-primary text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:scale-105 transition text-lg"
-              onClick={fetchSensorData}
-              disabled={loading}
-            >
-              <RefreshCw className={`mr-2 h-6 w-6 ${loading ? "animate-spin" : ""}`} />
-              {loading ? "Loading..." : "Refresh Data"}
-            </button>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <motion.section
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="p-6 md:p-8 rounded-2xl border border-emerald-100 bg-white/90 backdrop-blur shadow-sm hover:shadow-md transition-shadow"
+          >
+            <h2 className="mb-4 flex items-center text-emerald-700 text-xl font-bold">
+              <Cpu className="mr-2 h-6 w-6" />
+              Raw Sensor Data
+            </h2>
+            {sensorData ? (
+              <div className="grid grid-cols-2 gap-4 md:gap-6">
+                {Object.entries(sensorData).map(([key, value]) => (
+                  <motion.div
+                    key={key}
+                    whileHover={{ scale: 1.02 }}
+                    className="rounded-xl bg-emerald-50/60 px-4 py-3 flex flex-col items-center border border-emerald-100 shadow-sm"
+                  >
+                    <span className="uppercase text-xs text-emerald-700 font-semibold tracking-wide">{key}</span>
+                    <span className="text-2xl font-mono font-bold text-emerald-900">{typeof value === 'number' ? value.toFixed(3) : value}</span>
+                  </motion.div>
+                ))}
+              </div>
+            ) : (
+              <div className="text-gray-400">No data received from ESP32 yet.</div>
+            )}
+          </motion.section>
 
-          {error && (
-            <div className="mb-6 px-4 py-3 rounded-lg bg-red-50 border border-red-200 text-red-700 font-medium shadow">
-              {error}
-            </div>
-          )}
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* Raw Sensor Data */}
-            <section className="dashboard-card p-8 flex flex-col shadow-xl rounded-2xl border border-primary/10 bg-white/90">
-              <h2 className="dashboard-section-title mb-4 flex items-center text-blue-700 text-xl font-bold">
-                <Cpu className="mr-2 h-6 w-6" />
-                Raw Sensor Data
-              </h2>
-              {sensorData ? (
-                <div className="grid grid-cols-2 gap-6">
-                  {Object.entries(sensorData).map(([key, value]) => (
-                    <div key={key} className="rounded-xl bg-blue-50 px-4 py-3 flex flex-col items-center shadow-sm border border-blue-100">
-                      <span className="uppercase text-xs text-blue-700 font-semibold tracking-wide">{key}</span>
-                      <span className="text-2xl font-mono font-bold text-blue-900">{typeof value === 'number' ? value.toFixed(3) : value}</span>
-                    </div>
-                  ))}
+          <motion.section
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="p-6 md:p-8 rounded-2xl border border-teal-100 bg-white/90 backdrop-blur shadow-sm hover:shadow-md transition-shadow"
+          >
+            <h2 className="mb-4 flex items-center text-teal-700 text-xl font-bold">
+              <BarChart3 className="mr-2 h-6 w-6" />
+              AI Analysis
+            </h2>
+            {aiResult ? (
+              <>
+                <div className="mb-4 text-gray-700 whitespace-pre-line font-medium leading-relaxed">
+                  {aiResult.summary}
                 </div>
-              ) : (
-                <div className="text-gray-400">No data received from ESP32 yet.</div>
-              )}
-            </section>
-
-            {/* AI Analysis */}
-            <section className="dashboard-card p-8 flex flex-col shadow-xl rounded-2xl border border-accent/10 bg-white/90">
-              <h2 className="dashboard-section-title mb-4 flex items-center text-green-700 text-xl font-bold">
-                <BarChart3 className="mr-2 h-6 w-6" />
-                AI Analysis
-              </h2>
-              {aiResult ? (
-                <>
-                  <div className="mb-4 text-gray-700 whitespace-pre-line font-medium leading-relaxed">
-                    {aiResult.summary}
-                  </div>
-                  {/* Replace below with your chart component */}
-                  <pre className="bg-green-50 rounded-lg p-3 text-xs overflow-x-auto border border-green-100">{JSON.stringify(aiResult.chartData, null, 2)}</pre>
-                </>
-              ) : (
-                <div className="text-gray-400">No AI analysis available.</div>
-              )}
-            </section>
-          </div>
-        </main>
-      </div>
-    </div>
+                <pre className="bg-teal-50 rounded-lg p-3 text-xs overflow-x-auto border border-teal-100">{JSON.stringify(aiResult.chartData, null, 2)}</pre>
+              </>
+            ) : (
+              <div className="text-gray-400">No AI analysis available.</div>
+            )}
+          </motion.section>
+        </div>
+      </section>
+      <SiteFooter />
+    </main>
   );
 };
 

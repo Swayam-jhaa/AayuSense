@@ -67,7 +67,7 @@ export const sampleAPI = {
       },
       shap: sampleData.shap || [
         { feature: "pH", impact: Math.random() * 0.5 },
-        { feature: "e1_mV", impact: Math.random() * 0.5 },
+        { feature: "Reduction_value", impact: Math.random() * 0.5 },
         { feature: "turbidity", impact: Math.random() * 0.3 }
       ],
       model_version: "v1.0.0",
@@ -224,9 +224,9 @@ export const exportAPI = {
       sample.sensors.TDS.toFixed(0),
       sample.sensors.orp_mV.toFixed(0),
       sample.sensors.turbidity.toFixed(3),
-      sample.sensors.e1_mV.toFixed(3),
-      sample.sensors.e2_mV.toFixed(3),
-      sample.sensors.e3_mV.toFixed(3),
+      sample.sensors.Reduction_value.toFixed(3),
+      sample.sensors.Ionic_value.toFixed(3),
+      sample.sensors.Salt_content.toFixed(3),
       sample.sensors.temp_c.toFixed(1),
       sample.rasa_intensities.madhura.toFixed(1),
       sample.rasa_intensities.amla.toFixed(1),

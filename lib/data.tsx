@@ -16,9 +16,9 @@ export const mockSampleResults: SampleResult[] = [
       TDS: 210,
       orp_mV: 345,
       turbidity: 0.14,
-      e1_mV: 0.120,
-      e2_mV: 0.080,
-      e3_mV: 0.220,
+      Reduction_value: 0.120,
+      Ionic_value: 0.080,
+      Salt_content: 0.220,
       temp_c: 25.2
     },
     rasa_intensities: {
@@ -35,7 +35,7 @@ export const mockSampleResults: SampleResult[] = [
       threshold: 0.5
     },
     shap: [
-      { feature: "e3_mV", impact: 0.38 },
+      { feature: "Salt_content", impact: 0.38 },
       { feature: "pH", impact: 0.31 },
       { feature: "turbidity", impact: 0.15 }
     ],
@@ -54,9 +54,9 @@ export const mockSampleResults: SampleResult[] = [
       TDS: 180,
       orp_mV: 290,
       turbidity: 0.22,
-      e1_mV: 0.180,
-      e2_mV: 0.150,
-      e3_mV: 0.190,
+      Reduction_value: 0.180,
+      Ionic_value: 0.150,
+      Salt_content: 0.190,
       temp_c: 24.8
     },
     rasa_intensities: {
@@ -74,7 +74,7 @@ export const mockSampleResults: SampleResult[] = [
     },
     shap: [
       { feature: "TDS", impact: 0.42 },
-      { feature: "e1_mV", impact: 0.35 },
+      { feature: "Reduction_value", impact: 0.35 },
       { feature: "pH", impact: 0.23 }
     ],
     model_version: "v1.0.0",
@@ -92,9 +92,9 @@ export const mockSampleResults: SampleResult[] = [
       TDS: 155,
       orp_mV: 320,
       turbidity: 0.08,
-      e1_mV: 0.095,
-      e2_mV: 0.065,
-      e3_mV: 0.140,
+      Reduction_value: 0.095,
+      Ionic_value: 0.065,
+      Salt_content: 0.140,
       temp_c: 25.5
     },
     rasa_intensities: {
@@ -112,7 +112,7 @@ export const mockSampleResults: SampleResult[] = [
     },
     shap: [
       { feature: "turbidity", impact: 0.45 },
-      { feature: "e2_mV", impact: 0.32 },
+      { feature: "Ionic_value", impact: 0.32 },
       { feature: "orp_mV", impact: 0.23 }
     ],
     model_version: "v1.0.0",
@@ -234,9 +234,9 @@ export const generateMockSensorReading = (baseValues: Partial<SensorData> = {}):
     TDS: 180,
     orp_mV: 320,
     turbidity: 0.15,
-    e1_mV: 0.120,
-    e2_mV: 0.080,
-    e3_mV: 0.180,
+    Reduction_value: 0.120,
+    Ionic_value: 0.080,
+    Salt_content: 0.180,
     temp_c: 25.0
   };
 
@@ -249,9 +249,9 @@ export const generateMockSensorReading = (baseValues: Partial<SensorData> = {}):
     TDS: addNoise(baseValues.TDS || defaults.TDS, 0.1),
     orp_mV: addNoise(baseValues.orp_mV || defaults.orp_mV, 0.05),
     turbidity: addNoise(baseValues.turbidity || defaults.turbidity, 0.15),
-    e1_mV: addNoise(baseValues.e1_mV || defaults.e1_mV, 0.1),
-    e2_mV: addNoise(baseValues.e2_mV || defaults.e2_mV, 0.1),
-    e3_mV: addNoise(baseValues.e3_mV || defaults.e3_mV, 0.1),
+    Reduction_value: addNoise(baseValues.Reduction_value || defaults.Reduction_value, 0.1),
+    Ionic_value: addNoise(baseValues.Ionic_value || defaults.Ionic_value, 0.1),
+    Salt_content: addNoise(baseValues.Salt_content || defaults.Salt_content, 0.1),
     temp_c: addNoise(baseValues.temp_c || defaults.temp_c, 0.02)
   };
 };

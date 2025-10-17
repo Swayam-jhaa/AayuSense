@@ -109,9 +109,9 @@ export function MeasureProgress({
         return `${value.toFixed(0)} mV`;
       case 'turbidity':
         return value.toFixed(3);
-      case 'e1_mV':
-      case 'e2_mV':
-      case 'e3_mV':
+      case 'Reduction_value':
+      case 'Ionic_value':
+      case 'Salt_content':
         return `${value.toFixed(3)} mV`;
       case 'temp_c':
         return `${value.toFixed(1)} °C`;
@@ -136,8 +136,7 @@ export function MeasureProgress({
   };
 
   const sensorKeys: (keyof SensorData)[] = [
-    'pH', 'TDS', 'orp_mV', 'turbidity', 
-    'e1_mV', 'e2_mV', 'e3_mV', 'temp_c'
+    'pH', 'TDS', 'orp_mV', 'turbidity', 'Ionic_value', 'Salt_content', 'temp_c'
   ];
 
   return (

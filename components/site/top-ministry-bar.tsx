@@ -27,7 +27,7 @@ export function TopMinistryBar() {
         </div>
         <div className="hidden sm:flex items-center gap-3">
           <Image src={'./images/skill.png'} alt="skill-indi" height={90} width={90} />
-             <Image src={'./images/swach.png'} alt="skill-indi" height={90} width={90} />
+             <Image src={'./images/chakki.jpeg'} alt="skill-indi" height={90} width={90} />
         </div>
       </div>
     </div>

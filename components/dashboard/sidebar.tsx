@@ -25,7 +25,7 @@ export function Sidebar() {
       <div className="hidden md:flex items-center justify-between px-4 py-4">
         <div className="flex items-center gap-2">
           <Image src={"/images/ayurveda.png"}alt="Logo"width={30} height={30}  className="h-8 w-8 rounded-md bg-(--color-brand)/10 border border-(--color-brand)/30" />
-          <span className="font-serif font-bold text-(--color-deep)">AayuSense</span>
+          <span className="font-serif font-bold text-(--color-deep)">Aayuwave</span>
         </div>
         <button
           onClick={() => setOpen(false)}
@@ -61,7 +61,7 @@ export function Sidebar() {
         <div className="flex items-center justify-between rounded-xl border border-(--color-deep)/10 bg-(--color-bg) p-3">
           <div className="flex items-center gap-2">
             <Image src={"/images/ayurveda.png"}alt="Logo"width={30} height={30}  className="h-8 w-8 rounded-md bg-(--color-brand)/10 border border-(--color-brand)/30" />
-            <span className="font-semibold text-(--color-deep)">AayuSense</span>
+            <span className="font-semibold text-(--color-deep)">Aayuwave</span>
           </div>
           <SignedIn>
             <SignOutButton>

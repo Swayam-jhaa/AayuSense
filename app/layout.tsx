@@ -19,7 +19,7 @@ import { ClerkProvider } from "@clerk/nextjs"
 const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
 
 export const metadata: Metadata = {
-  title: "AAayuSense | E‑Tongue Intelligence for Ayurveda",
+  title: "AAayuwave | E‑Tongue Intelligence for Ayurveda",
   description: "Modern Ayurvedic AI platform for herbal rasa analysis and adulteration detection.",
   generator: "v0.app",
 }

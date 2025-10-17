@@ -16,6 +16,11 @@ const faqs = [
     q: "Can I export reports?",
     a: "You can export batch reports as PDF/CSV to share with your team or for compliance.",
   },
+  {
+    q: "Can I export reports?",
+    a: "You can export batch reports as PDF/CSV to share with your team or for compliance.",
+  },
+  
 ]
 
 export function FAQ() {
